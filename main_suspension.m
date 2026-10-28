@@ -57,7 +57,7 @@ xt = p.v * cam.t;                 % posición del vehículo en cada instante
 col = lines(3);
 
 % --- Figura 1: camino y clasificación
-figure('Name', 'Camino y clasificación', 'Position', [50 50 1100 600]);
+figure('Name', 'Camino y clasificación', 'WindowStyle', 'docked');
 tiledlayout(2, 1);
 nexttile;
 hz = plot(cam.x, 100*cam.zr, 'k'); grid on; hold on;
@@ -83,7 +83,7 @@ title(sprintf('Clasificación por ventana: exactitud %.1f %%', 100*ds.exactitud)
 legend('real', 'predicha', 'evento detectado', 'Location', 'southeast');
 
 % --- Figura 2: confort
-figure('Name', 'Confort', 'Position', [80 80 1100 600]);
+figure('Name', 'Confort', 'WindowStyle', 'docked');
 tiledlayout(2, 1);
 nexttile;
 for k = 1:3
@@ -101,7 +101,7 @@ yline([0.315 0.63], ':', {'cómodo', 'algo incómodo'});
 grid on; xlabel('x [m]'); ylabel('RMS móvil 2 s [m/s^2]'); legend(modos);
 
 % --- Figura 3: restricciones mecánicas
-figure('Name', 'Carrera y llanta', 'Position', [110 110 1100 500]);
+figure('Name', 'Carrera y llanta', 'WindowStyle', 'docked');
 tiledlayout(2, 1);
 nexttile;
 for k = 1:3, plot(xt, 100*res(k).carr, 'Color', col(k,:)); hold on; end
@@ -113,7 +113,7 @@ grid on; xlabel('x [m]'); ylabel('deflexión llanta [mm]');
 title('Deflexión de llanta (si z_u - z_r > peso/k_t la llanta despega)');
 
 % --- Figura 4: energía
-figure('Name', 'Energía', 'Position', [140 140 1100 600]);
+figure('Name', 'Energía', 'WindowStyle', 'docked');
 tiledlayout(2, 1);
 nexttile;
 for k = 2:3
@@ -132,7 +132,7 @@ legend(modos(2:3), 'Location', 'northwest');
 title('Balance eléctrico acumulado, 4 ruedas (+ = energía recuperada)');
 
 % --- Figura 5: ciencia de datos
-figure('Name', 'Ciencia de datos', 'Position', [170 170 1000 420]);
+figure('Name', 'Ciencia de datos', 'WindowStyle', 'docked');
 tl = tiledlayout(1, 2);
 nexttile(tl, 1);
 gscatter_simple(ds.Xtr(:,1), ds.Xtr(:,4), ds.ytr, col);

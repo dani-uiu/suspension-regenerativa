@@ -73,7 +73,7 @@ if graficar
         zs(i) = x(1) + zu(i);
         x = sys.Ad*x + sys.Ed*w(i);
     end
-    figure('Name','Validación modelo');
+    figure('Name','Validación modelo', 'WindowStyle','docked');
     plot(t, 100*zr, 'k--', t, 100*zs, t, 100*zu, 'LineWidth', 1.2);
     grid on; xlabel('t [s]'); ylabel('desplazamiento [cm]');
     legend('camino z_r','carrocería z_s','rueda z_u','Location','southeast');

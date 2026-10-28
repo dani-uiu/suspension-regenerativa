@@ -8,6 +8,7 @@
 %  Ejecutar sección por sección con Ctrl+Enter (o todo con F5).
 
 clear; clc; close all;
+set(0, 'DefaultFigureWindowStyle', 'docked');   % todas las figuras como pestañas en una sola ventana
 
 %% 0. Parámetros comunes
 p = parametros();
@@ -137,6 +138,7 @@ nexttile(tl, 1);
 gscatter_simple(ds.Xtr(:,1), ds.Xtr(:,4), ds.ytr, col);
 xlabel(ds.nombres_feat{1}); ylabel(ds.nombres_feat{4}); grid on;
 legend(cam.clases, 'Location', 'best'); title('Espacio de características (entrenamiento)');
+hold off;   % heatmap no se puede crear con hold activo
 hm = heatmap(tl, cam.clases, cam.clases, ds.CM);
 hm.Layout.Tile = 2;
 hm.XLabel = 'Predicho';  hm.YLabel = 'Real';  hm.Title = 'Matriz de confusión';
